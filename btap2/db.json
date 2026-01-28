@@ -1,0 +1,71 @@
+{
+  "$schema": "./node_modules/json-server/schema.json",
+  "posts": [
+    {
+      "title": "Bài viết đầu tiên",
+      "views": "1234",
+      "id": "1",
+      "isDeleted": true
+    },
+    {
+      "title": "Bài viết thứ hai",
+      "views": "5678",
+      "id": "2",
+      "isDeleted": true
+    },
+    {
+      "title": "Bài viết đã xóa",
+      "views": "100",
+      "id": "3",
+      "isDeleted": true
+    },
+    {
+      "id": "5",
+      "title": "aádfg",
+      "views": "1000000",
+      "isDeleted": true
+    },
+    {
+      "title": "ccccc",
+      "views": "12",
+      "id": "6",
+      "isDeleted": true
+    },
+    {
+      "title": "rrr",
+      "views": "12",
+      "id": "7"
+    },
+    {
+      "id": "8",
+      "title": "",
+      "views": "",
+      "isDeleted": true
+    }
+  ],
+  "comments": [
+    {
+      "id": "2",
+      "content": "Bình luận về bài viết 2",
+      "postId": "2"
+    },
+    {
+      "id": "5",
+      "content": "ad",
+      "postId": "5"
+    },
+    {
+      "id": "4",
+      "content": "ad",
+      "postId": "1"
+    },
+    {
+      "id": "6",
+      "content": "",
+      "postId": ""
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

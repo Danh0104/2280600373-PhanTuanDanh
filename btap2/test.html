@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Bài Viết và Bình Luận</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        input[type="submit"][value="Delete"] {
+            background-color: #dc3545;
+        }
+        input[type="submit"][value="Delete"]:hover {
+            background-color: #c82333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .form-row input {
+            flex: 1;
+        }
+        .form-row input[type="submit"] {
+            width: auto;
+        }
+    </style>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Phần quản lý bài viết -->
+        <div class="section">
+            <h2>📝 Quản Lý Bài Viết</h2>
+            
+            <div class="form-group">
+                <label for="id_txt">ID (để trống để tự động tăng):</label>
+                <input type="text" id="id_txt" placeholder="Để trống để tự động tăng"/>
+            </div>
+            
+            <div class="form-group">
+                <label for="title_txt">Tiêu đề:</label>
+                <input type="text" id="title_txt" placeholder="Nhập tiêu đề bài viết"/>
+            </div>
+            
+            <div class="form-group">
+                <label for="view_txt">Lượt xem:</label>
+                <input type="number" id="view_txt" placeholder="Nhập số lượt xem"/>
+            </div>
+            
+            <input type="submit" value="Lưu Bài Viết" onclick="Save()">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tiêu đề</th>
+                        <th>Lượt xem</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="body_table">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phần quản lý bình luận -->
+        <div class="section">
+            <h2>💬 Quản Lý Bình Luận</h2>
+            
+            <div class="form-group">
+                <label for="comment_id_txt">ID (để trống để tự động tăng):</label>
+                <input type="text" id="comment_id_txt" placeholder="Để trống để tự động tăng"/>
+            </div>
+            
+            <div class="form-group">
+                <label for="comment_content_txt">Nội dung bình luận:</label>
+                <input type="text" id="comment_content_txt" placeholder="Nhập nội dung bình luận"/>
+            </div>
+            
+            <div class="form-group">
+                <label for="comment_postId_txt">ID Bài viết:</label>
+                <input type="number" id="comment_postId_txt" placeholder="Nhập ID bài viết"/>
+            </div>
+            
+            <input type="submit" value="Lưu Bình Luận" onclick="SaveComment()">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nội dung</th>
+                        <th>ID Bài viết</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="comments_table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
